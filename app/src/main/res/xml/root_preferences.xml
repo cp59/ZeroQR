@@ -1,0 +1,88 @@
+
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <ListPreference
+        app:key="startupMode"
+        app:title="@string/startup_mode"
+        app:entries="@array/startModeEntries"
+        app:entryValues="@array/startModeEntryValues"
+        android:icon="@drawable/ic_power_settings_new"
+        app:useSimpleSummaryProvider="true" />
+    <CheckBoxPreference
+        app:key="openLinkInExternalBrowser"
+        android:title="@string/open_link_in_external_browser"
+        android:defaultValue="false"
+        android:icon="@drawable/ic_open_in_new"/>
+    <PreferenceCategory app:title="@string/history" app:iconSpaceReserved="false">
+        <SwitchPreference
+            app:key="saveScanHistory"
+            android:title="@string/save_scan_history"
+            android:defaultValue="true"
+            android:icon="@drawable/ic_history"/>
+        <SwitchPreference
+            app:key="saveCreateHistory"
+            android:title="@string/save_create_history"
+            android:defaultValue="true"
+            android:icon="@drawable/ic_history"/>
+        <ListPreference
+            app:key="maxHistorySaveNumber"
+            android:title="@string/maxHistorySaveNumber"
+            app:entries="@array/maxHistorySaveNumberEntries"
+            app:entryValues="@array/maxHistorySaveNumberEntryValues"
+            app:useSimpleSummaryProvider="true"
+            android:icon="@drawable/ic_auto_delete" />
+        <Preference
+            app:key="clearHistory"
+            android:title="@string/clear_history"
+            android:icon="@drawable/ic_delete"/>
+    </PreferenceCategory>
+    <PreferenceCategory app:title="@string/on_decoded" app:iconSpaceReserved="false">
+        <SwitchPreference
+            android:icon="@drawable/ic_copy"
+            android:defaultValue="false"
+            android:title="@string/copy_to_clipboard"
+            app:key="copy" />
+        <SwitchPreference
+            app:key="vibrate"
+            android:title="@string/vibrate"
+            android:defaultValue="true"
+            android:icon="@drawable/ic_vibration"/>
+        <SwitchPreference
+            app:key="beep"
+            android:title="@string/beep"
+            android:defaultValue="true"
+            android:icon="@drawable/ic_volume_up"/>
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/help" app:iconSpaceReserved="false">
+        <Preference
+            app:key="help"
+            app:title="@string/help"
+            android:icon="@drawable/ic_help_outline"/>
+        <Preference
+            app:key="reportError"
+            android:title="@string/report_error"
+            android:icon="@drawable/ic_bug_report"/>
+    </PreferenceCategory>
+    <PreferenceCategory app:title="@string/about" app:iconSpaceReserved="false">
+        <Preference
+            app:key="about"
+            app:title="@string/version"
+            android:summary="@string/version_string"
+            android:icon="@drawable/ic_update"/>
+        <Preference
+            app:key="legelInfomation"
+            app:title="@string/legal_information"
+            android:summary="@string/copyright_string"
+            android:icon="@drawable/ic_balance"/>
+        <Preference
+            app:key="openSourceLicenses"
+            app:title="@string/open_source_licenses"
+            android:icon="@drawable/ic_code"/>
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

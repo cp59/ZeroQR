@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable-v21/app_widget_background.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14270833333333333" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable-v24/ripple.xml" value="0.14270833333333333" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/bottom_navigation_selector.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_add.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_add_for_button.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_as_qr_code_scanner_foreground.xml" value="0.13541666666666666" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_cameraswitch.xml" value="0.13541666666666666" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_copy.xml" value="0.225" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_copy_for_button.xml" value="0.225" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_flash_off.xml" value="0.13541666666666666" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_flash_on.xml" value="0.13541666666666666" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_format_color_fill_for_button.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14270833333333333" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_outline_photo_for_button.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_qr_code_scanner.xml" value="0.265625" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_qr_code_scanner_for_button.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_save.xml" value="0.265625" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_share.xml" value="0.225" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_text_for_button.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_zoom_out_map.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_zoom_out_map_for_button.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ripple.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/round_image.xml" value="0.14270833333333333" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/widget_button_background.xml" value="0.13541666666666666" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/activity_about.xml" value="0.1265625" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/activity_color_picker.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/activity_generator_result.xml" value="0.152" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/activity_help.xml" value="0.2259963768115942" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/activity_history.xml" value="0.11927083333333334" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/activity_result.xml" value="0.152" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/app_widget.xml" value="0.3041168658698539" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/content_generator_result.xml" value="0.4" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_application_bottom_sheet_dialog_layout.xml" value="0.32303370786516855" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_calendar_bottom_sheet_dialog_layout.xml" value="0.34188911704312114" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_email_bottom_sheet_dialog_layout.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_location_bottom_sheet_dialog_layout.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_plain_text_bottom_sheet_dialog_layout.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_sms_bottom_sheet_dialog_layout.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_telephone_bottom_sheet_dialog_layout.xml" value="0.18070652173913043" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_url_bottom_sheet_dialog_layout.xml" value="0.536" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_wifi_bottom_sheet_dialog_layout.xml" value="0.536" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/fragment_first.xml" value="0.1265625" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/fragment_generator.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/fragment_history.xml" value="0.21422101449275363" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/fragment_scanner.xml" value="0.136" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/fragment_second.xml" value="0.1265625" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/fragment_settings.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/history_result_list_item.xml" value="0.176" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/installed_app_list.xml" value="0.536" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/list_item.xml" value="0.21603260869565216" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/qr_code_scanner_layout.xml" value="0.11927083333333334" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/scan_result_list_item.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/set_qrcode_title_dialog_layout.xml" value="0.13405797101449277" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/settings_activity.xml" value="0.1265625" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/menu/bottom_nav_menu.xml" value="0.23489583333333333" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/menu/empty_menu.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/menu/history_bottom_nav_menu.xml" value="0.11979166666666667" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/menu/history_menu.xml" value="0.14270833333333333" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/mipmap-anydpi-v26/ic_as_qr_code_scanner.xml" value="0.13541666666666666" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14270833333333333" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.14270833333333333" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/xml/filepaths.xml" value="0.15579710144927536" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/xml/root_preferences.xml" value="0.4" />
+        <entry key="..\:/AndroidStudioProjects/ZeroQR/app/src/main/res/xml/shortcuts.xml" value="0.1265625" />
+        <entry key="..\:/Users/cp/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_flash_on.xml" value="0.1953125" />
+        <entry key="..\:/Users/cp/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/activity_main.xml" value="0.3392210144927536" />
+        <entry key="..\:/Users/cp/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/fragment_generator.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/cp/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/fragment_history.xml" value="0.20871327254305977" />
+        <entry key="..\:/Users/cp/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/fragment_scanner.xml" value="0.161231884057971" />
+        <entry key="..\:/Users/cp/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/fragment_settings.xml" value="0.3392210144927536" />
+        <entry key="..\:/Users/cp/AndroidStudioProjects/ZeroQR/app/src/main/res/xml/root_preferences.xml" value="0.1" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable-v21/app_widget_inner_view_background.xml" value="0.3245" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable-v21/appicon_avd.xml" value="0.31" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable-v21/avd_anim.xml" value="0.2535" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/animated_icon.xml" value="0.3145" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/branding_image_layer_list.xml" value="0.3245" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_appicon.xml" value="0.2575" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_appicon_night.xml" value="0.2575" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_camera_front.xml" value="0.1359375" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_flash_off.xml" value="0.1359375" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_help.xml" value="0.1359375" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_outline_photo_for_button.xml" value="0.1359375" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_qr_code.xml" value="0.2175" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_qr_code_scanner.xml" value="0.13541666666666666" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_qr_code_scanner_for_button.xml" value="0.13541666666666666" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/round_image.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/activity_generator_result.xml" value="0.264" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/activity_help.xml" value="0.2520833333333333" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/activity_result.xml" value="0.2" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/app_widget.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_application_bottom_sheet_dialog_layout.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_calendar_bottom_sheet_dialog_layout.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_email_bottom_sheet_dialog_layout.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_location_bottom_sheet_dialog_layout.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_plain_text_bottom_sheet_dialog_layout.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_sms_bottom_sheet_dialog_layout.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_telephone_bottom_sheet_dialog_layout.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_url_bottom_sheet_dialog_layout.xml" value="0.33" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_wifi_bottom_sheet_dialog_layout.xml" value="0.22" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/fragment_generator.xml" value="0.22" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/fragment_history.xml" value="0.223731884057971" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/fragment_scanner.xml" value="0.176" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/fragment_settings.xml" value="0.223731884057971" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/history_result_list_item.xml" value="0.45454545454545453" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/installed_app_list.xml" value="0.42864583333333334" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/list_item.xml" value="0.11979166666666667" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/qr_code_scanner_layout.xml" value="0.11979166666666667" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/result_action_layout.xml" value="0.5678832116788322" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/save_result_bottom_sheet_dialog_layout.xml" value="0.264" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/scan_result_list_item.xml" value="0.264" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/set_qrcode_title_dialog_layout.xml" value="0.213768115942029" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/shorten_url_bottom_sheet_dialog_layout.xml" value="0.2682291666666667" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/shorten_url_dialog_layout.xml" value="0.33" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/menu/bottom_nav_menu.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/menu/generator_bottom_nav_menu.xml" value="0.4" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.15885416666666666" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/xml/root_preferences.xml" value="0.33" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

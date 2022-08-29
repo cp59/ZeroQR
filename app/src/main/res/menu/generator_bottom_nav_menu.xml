@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_size"
+        android:icon="@drawable/ic_zoom_out_map"
+        android:title="@string/size" />
+    <item
+        android:id="@+id/action_color"
+        android:icon="@drawable/ic_format_color_fill"
+        android:title="@string/color" />
+
+
+    <item
+        android:id="@+id/action_logo"
+        android:icon="@drawable/ic_outline_photo"
+        android:title="@string/logo"/>
+
+    <item
+        android:id="@+id/action_title"
+        android:icon="@drawable/ic_text"
+        android:title="@string/title" />
+
+</menu>

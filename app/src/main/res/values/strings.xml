@@ -1,0 +1,190 @@
+<resources>
+    <string name="app_name">ZeroQR</string>
+    <string name="history">History</string>
+    <string name="settings">Settings</string>
+    <string name="copy">Copy</string>
+    <string name="open_in_the_browser">Open in the browser</string>
+    <string name="share">Share</string>
+    <string name="title_activity_generator_result">Result</string>
+    <string-array name="encryption_array">
+        <item>WPA/WPA2/WPA3</item>
+        <item>WEP</item>
+        <item>None</item>
+    </string-array>
+    <string name="save">Save</string>
+    <string name="generator_fragment_title">Create QR Code</string>
+    <string name="generator_fragment_description">Select type to create QR Code</string>
+    <string name="plain_text">Plain text</string>
+    <string name="url">URL</string>
+    <string name="email">Email</string>
+    <string name="phone">Telephone numbers</string>
+    <string name="contact">Contact</string>
+    <string name="sms">SMS</string>
+    <string name="location">Location</string>
+    <string name="calendar">Calendar Events</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="content">Content</string>
+    <string name="generate_plain_text_dialog_title">Create a plain text QR Code</string>
+    <string name="require_content">Content cannot be empty!</string>
+    <string name="generate_url_dialog_title">Create URL type QR Code</string>
+    <string name="generate_email_dialog_title">Create Email type QR Code</string>
+    <string name="address">Address</string>
+    <string name="subject">Subject</string>
+    <string name="body">Body</string>
+    <string name="generate_telephone_numbers_dialog_title">Create telephone numbers type QR Code</string>
+    <string name="require_telephone_numbers">Telephone numbers cannot be empty!</string>
+    <string name="telephone_numbers">Telephone numbers</string>
+    <string name="generate_sms_dialog_title">Create SMS type QR Code</string>
+    <string name="number">Number</string>
+    <string name="message">Message</string>
+    <string name="generate_location_dialog_title">Create location type QR Code</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="require_latitude">Latitude cannot be empty!</string>
+    <string name="require_longitude">Longitude cannot be empty!</string>
+    <string name="generate_wifi_dialog_title">Create Wi-Fi type QR Code</string>
+    <string name="ssid">SSID</string>
+    <string name="password">Password</string>
+    <string name="hidden">Hidden</string>
+    <string name="require_ssid">SSID cannot be empty!</string>
+    <string name="require_password">Password cannot be empty!</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="help">Help</string>
+    <string name="about">About ZeroQR</string>
+    <string name="version_string">1.45(Release)</string>
+    <string name="scan_qr_code">Scan QR Code</string>
+    <string name="generate_qr_code">Create QR Code</string>
+    <string-array name="startModeEntries">
+        <item>Scan Mode</item>
+        <item>Create Mode</item>
+    </string-array>
+    <string-array name="startModeEntryValues">
+        <item>scan</item>
+        <item>create</item>
+    </string-array>
+    <string-array name="maxHistorySaveNumberEntries">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+        <item>60</item>
+        <item>70</item>
+        <item>80</item>
+        <item>90</item>
+        <item>100</item>
+        <item>150</item>
+        <item>200</item>
+        <item>250</item>
+        <item>300</item>
+        <item>Unlimited</item>
+    </string-array>
+    <string-array name="maxHistorySaveNumberEntryValues">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+        <item>60</item>
+        <item>70</item>
+        <item>80</item>
+        <item>90</item>
+        <item>100</item>
+        <item>150</item>
+        <item>200</item>
+        <item>250</item>
+        <item>300</item>
+        <item>0</item>
+    </string-array>
+    <string name="startup_mode">Startup mode</string>
+    <string name="request_permission">Request permission</string>
+    <string name="camera_permission_denied_dialog_message">You must allow ZeroQR to use your camera to scan QR Code. ZeroQR will not use your camera for purposes other than QR Code scanning.</string>
+    <string name="read_contacts_permission_denied_dialog_message">You must allow ZeroQR to read your contacts to create a contact type QR Code. ZeroQR will not use your contacts for purposes other than creating QR Code.</string>
+    <string name="grant_permission_from_settings_dialog_title">Grant permissions from settings</string>
+    <string name="grant_permission_from_settings_dialog_message">Because you refuse to denied permission too many times, you must grant permission from the settings, don’t worry, we will take you to set it!</string>
+    <string name="lang">en</string>
+    <string name="location_permission_denied_dialog_message">You must allow ZeroQR to access your location to create a location-based QR Code. ZeroQR will not use your location for purposes other than creating a QR Code.</string>
+    <string name="use_gps_location">Use GPS location</string>
+    <string name="finding_location">Looking for your location</string>
+    <string name="encryption">Encryption</string>
+    <string name="application">Application</string>
+    <string name="size">Size</string>
+    <string name="color">Color</string>
+    <string name="logo">Logo</string>
+    <string name="title">Title</string>
+    <string name="fit_screen_size">Fit screen size</string>
+    <string name="title_activity_color_picker">Color Picker</string>
+    <string name="foreground_color">Foreground Color</string>
+    <string name="background_color">Background Color</string>
+    <string name="title_color">Title Color</string>
+    <string name="saved_to_album">Successfully saved to the album!</string>
+    <string name="app_widget_description_1">ZeroQR Shortcut</string>
+    <string name="send_message">Send message</string>
+    <string name="type">Type</string>
+    <string name="open_in_maps">Open in maps</string>
+    <string name="qr_code_not_found">No QR Code found</string>
+    <string name="flashlight">Flashlight</string>
+    <string name="switch_camera">Switch camera</string>
+    <string name="on_decoded">On decoded</string>
+    <string name="vibrate">Vibrate</string>
+    <string name="beep">Beep</string>
+    <string name="copy_to_clipboard">Copy to clipboard</string>
+    <string name="open_source_licenses">Open source licenses</string>
+    <string name="open_in_phone">Open in phone</string>
+    <string name="send_email">Send Email</string>
+    <string name="connect_to_network">Connect to Network</string>
+    <string name="qr_code_detected">QR Code detected</string>
+    <string name="copied">Copy content successfully</string>
+    <string name="connecting_to_wifi">Connecting to Wi-Fi network</string>
+    <string name="time">Time</string>
+    <string name="clear_history">Clear history</string>
+    <string name="no_history">No history</string>
+    <string name="save_scan_history">Save scan QR Code history</string>
+    <string name="save_create_history">Save create QR Code history</string>
+    <string name="refresh">Refresh</string>
+    <string name="clear_history_dialog_title">Are you sure you want to clear the history?</string>
+    <string name="scan_mode">Scan mode</string>
+    <string name="create_mode">Create mode</string>
+    <string name="from">From</string>
+    <string name="generate_calendar_dialog_title">Create calendar type QR Code</string>
+    <string name="start_time">Start time</string>
+    <string name="end_time">End time</string>
+    <string name="description">Description</string>
+    <string name="require_title">Title cannot be empty!</string>
+    <string name="add_to_calendar">Add to calendar</string>
+    <string name="wifi_connect_not_support_android_10">Currently does not support Wi-Fi connection above Android 10</string>
+    <string name="version">Version</string>
+    <string name="legal_information">Legal information</string>
+    <string name="copyright_string">Copyright 2022 ZeroApp All rights reserved.</string>
+    <string name="select_image">Select Image</string>
+    <string name="share_image">Share Image</string>
+    <string name="scan_from_image">Scan from image</string>
+    <string name="switch_camera_help_text">Click this button to switch to the front camera or the rear camera!</string>
+    <string name="scan_from_image_help_text">Click this button to scan the QR Code of the picture in the device!</string>
+    <string name="flashlight_help_text">Click this button to enable or disable the flashlight!</string>
+    <string name="storage_permission_denied_dialog_message">You must allow ZeroQR to use your storage to save QR Code image. ZeroQR will not use your storage for purposes other than image saving.</string>
+    <string name="maxHistorySaveNumber">Maximum number of history stored</string>
+    <string name="clear_history_successfully">Clear history successfully!</string>
+    <string name="report_error">Report Error</string>
+    <string name="book">Book</string>
+    <string name="search_book">Search Book</string>
+    <string name="unable_to_load_url">Unable to load URL</string>
+    <string name="loading_apps">Loading all installed apps</string>
+    <string name="no_password">No password</string>
+    <string name="none">None</string>
+    <string name="open_link_in_external_browser">Open link in external browser</string>
+    <string name="view_qrcode">View QR Code</string>
+    <string name="shorten_url">Shorten URL</string>
+    <string name="require_url">URL cannot be empty!</string>
+    <string name="shortening_url">Shortening URL</string>
+    <string name="first_time_shorten_url_dialog_title">About shortening URLs in ZeroQR</string>
+    <string name="first_time_shorten_url_dialog_message">ZeroQR will use your Internet connection to connect QuickURL(URL Shortening Service) to obtain the shortened URL.\n\nURL shortening service in ZeroQR is provided by QuickURL</string>
+    <string name="custom_id">Custom ID</string>
+    <string name="require_custom_id">Custom ID cannot be empty!</string>
+    <string name="unable_to_shorten_url_dialog_title">Unable to shorten URL</string>
+    <string name="unable_to_shorten_url_dialog_message">The URL could not be shortened due to an unknown error. Please confirm your internet connection and try again.</string>
+    <string name="custom_id_already_used_dialog_title">Custom ID already used by someone else</string>
+    <string name="custom_id_already_used_dialog_message">The custom ID you entered is already used by someone else, please enter a different custom ID.</string>
+    <string name="invalid_url">Please enter a properly formatted URL!</string>
+    <string name="delete">Delete</string>
+</resources>

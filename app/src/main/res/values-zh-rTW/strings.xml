@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ZeroQR</string>
+    <string name="history">歷史紀錄</string>
+    <string name="settings">設定</string>
+    <string name="copy">複製</string>
+    <string name="open_in_the_browser">在瀏覽器中開啟</string>
+    <string name="share">分享</string>
+    <string name="title_activity_generator_result">結果</string>
+    <string-array name="encryption_array">
+        <item>WPA/WPA2/WPA3</item>
+        <item>WEP</item>
+        <item>無加密(無密碼)</item>
+    </string-array>
+    <string name="save">儲存</string>
+    <string name="generator_fragment_title">建立QR Code</string>
+    <string name="generator_fragment_description">選擇類型來建立QR Code</string>
+    <string name="url">URL</string>
+    <string name="plain_text">純文字</string>
+    <string name="email">電子郵件</string>
+    <string name="phone">電話號碼</string>
+    <string name="contact">聯絡人</string>
+    <string name="sms">SMS簡訊</string>
+    <string name="location">位置</string>
+    <string name="calendar">行事曆</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="content">內容</string>
+    <string name="generate_plain_text_dialog_title">建立純文字類型的QR Code</string>
+    <string name="require_content">內容不可為空!</string>
+    <string name="generate_url_dialog_title">建立URL類型的QR Code</string>
+    <string name="generate_email_dialog_title">建立電子郵件類型的QR Code</string>
+    <string name="address">收件者</string>
+    <string name="subject">主旨</string>
+    <string name="body">內容</string>
+    <string name="generate_telephone_numbers_dialog_title">建立電話號碼類型的QR Code</string>
+    <string name="require_telephone_numbers">電話號碼不可為空!</string>
+    <string name="telephone_numbers">電話號碼</string>
+    <string name="generate_sms_dialog_title">建立SMS簡訊類型的QR Code</string>
+    <string name="number">收件者</string>
+    <string name="message">訊息</string>
+    <string name="generate_location_dialog_title">建立位置類型的QR Code</string>
+    <string name="latitude">緯度</string>
+    <string name="longitude">經度</string>
+    <string name="require_latitude">緯度不可為空!</string>
+    <string name="require_longitude">經度不可為空!</string>
+    <string name="generate_wifi_dialog_title">建立Wi-Fi類型的QR Code</string>
+    <string name="ssid">SSID</string>
+    <string name="password">密碼</string>
+    <string name="hidden">隱藏網路</string>
+    <string name="require_ssid">SSID不可為空!</string>
+    <string name="require_password">密碼不可為空!</string>
+    <string name="title_activity_settings">設定</string>
+    <string name="help">說明</string>
+    <string name="about">關於ZeroQR</string>
+    <string name="version_string">1.45(正式版)</string>
+    <string name="scan_qr_code">掃描QR Code</string>
+    <string name="generate_qr_code">建立QR Code</string>
+    <string-array name="startModeEntries">
+        <item>掃描模式</item>
+        <item>建立模式</item>
+    </string-array>
+    <string-array name="maxHistorySaveNumberEntries">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+        <item>60</item>
+        <item>70</item>
+        <item>80</item>
+        <item>90</item>
+        <item>100</item>
+        <item>150</item>
+        <item>200</item>
+        <item>250</item>
+        <item>300</item>
+        <item>無限</item>
+    </string-array>
+    <string name="startup_mode">啟動模式</string>
+    <string name="request_permission">要求權限</string>
+    <string name="camera_permission_denied_dialog_message">您必須允許ZeroQR使用您的相機來掃描QR Code，ZeroQR不會使用您的相機來做QR Code掃描以外的用途</string>
+    <string name="read_contacts_permission_denied_dialog_message">您必須允許ZeroQR讀取您的聯絡人來建立聯絡人類型的QR Code，ZeroQR不會使用您的聯絡人來做建立QR Code以外的用途。</string>
+    <string name="grant_permission_from_settings_dialog_title">從設定中授予權限</string>
+    <string name="grant_permission_from_settings_dialog_message">因為您拒絕授予權限太多次，您必須從設定中授於權限，別擔心，我們會帶你去設定!</string>
+    <string name="lang">zh-TW</string>
+    <string name="location_permission_denied_dialog_message">您必須允許ZeroQR存取您的位置來建立位置類型的QR Code，ZeroQR不會使用您的位置來做建立QR Code以外的用途。</string>
+    <string name="use_gps_location">使用GPS位置</string>
+    <string name="finding_location">正在尋找您所在的位置</string>
+    <string name="encryption">加密</string>
+    <string name="application">應用程式</string>
+    <string name="size">大小</string>
+    <string name="color">顏色</string>
+    <string name="logo">標誌</string>
+    <string name="title">標題</string>
+    <string name="fit_screen_size">適合螢幕的大小</string>
+    <string name="title_activity_color_picker">顏色選擇器</string>
+    <string name="foreground_color">QRCode顏色</string>
+    <string name="background_color">背景顏色</string>
+    <string name="title_color">標題顏色</string>
+    <string name="saved_to_album">成功儲存至相簿!</string>
+    <string name="app_widget_description_1">ZeroQR快捷方式</string>
+    <string name="send_message">傳送訊息</string>
+    <string name="type">類型</string>
+    <string name="open_in_maps">在地圖中打開</string>
+    <string name="qr_code_not_found">沒有在所選的照片中找到QR Code</string>
+    <string name="flashlight">閃光燈</string>
+    <string name="switch_camera">切換相機</string>
+    <string name="on_decoded">當掃描到QR Code時</string>
+    <string name="vibrate">震動</string>
+    <string name="beep">蜂鳴聲</string>
+    <string name="copy_to_clipboard">複製至剪貼簿</string>
+    <string name="open_source_licenses">開放原始碼授權</string>
+    <string name="open_in_phone">在電話中開啟</string>
+    <string name="send_email">傳送電子郵件</string>
+    <string name="connect_to_network">連線至網路</string>
+    <string name="qr_code_detected">偵測到QR Code</string>
+    <string name="copied">成功複製內容</string>
+    <string name="connecting_to_wifi">正在連線至Wi-Fi網路</string>
+    <string name="time">時間</string>
+    <string name="clear_history">清除歷史紀錄</string>
+    <string name="no_history">沒有歷史紀錄</string>
+    <string name="save_scan_history">儲存QR Code掃描紀錄</string>
+    <string name="save_create_history">儲存QR Code建立紀錄</string>
+    <string name="refresh">重新整理</string>
+    <string name="clear_history_dialog_title">您確定要清除歷史紀錄嗎?</string>
+    <string name="scan_mode">掃描模式</string>
+    <string name="create_mode">建立模式</string>
+    <string name="from">來源</string>
+    <string name="generate_calendar_dialog_title">建立行事曆類型的QR Code</string>
+    <string name="start_time">開始時間</string>
+    <string name="end_time">結束時間</string>
+    <string name="description">描述</string>
+    <string name="require_title">標題不可為空!</string>
+    <string name="add_to_calendar">加入至行事曆</string>
+    <string name="wifi_connect_not_support_android_10">"目前不支援在Android 10以上連線Wi-Fi "</string>
+    <string name="version">版本</string>
+    <string name="legal_information">法律資訊</string>
+    <string name="copyright_string">Copyright 2022 ZeroApp 保留所有權利。</string>
+    <string name="select_image">選擇圖片</string>
+    <string name="share_image">分享圖片</string>
+    <string name="scan_from_image">從圖片掃描</string>
+    <string name="switch_camera_help_text">點擊此按鈕可切換至前置攝像頭或後置攝像頭!</string>
+    <string name="scan_from_image_help_text">點擊此按鈕可掃描裝置裡的圖片QR Code!</string>
+    <string name="flashlight_help_text">點擊此按鈕可啟用或關閉閃光燈!</string>
+    <string name="storage_permission_denied_dialog_message">您必須允許ZeroQR使用您的儲存空間來儲存QR Code圖片，ZeroQR不會使用您的儲存空間來做儲存QR Code圖片以外的用途</string>
+    <string name="maxHistorySaveNumber">歷史紀錄最大儲存數量</string>
+    <string name="clear_history_successfully">成功清除歷史記錄!</string>
+    <string name="report_error">回報錯誤</string>
+    <string name="book">書籍</string>
+    <string name="search_book">搜尋書籍</string>
+    <string name="unable_to_load_url">無法載入URL</string>
+    <string name="loading_apps">正在載入所有已安裝的App</string>
+    <string name="no_password">無密碼</string>
+    <string name="none">無</string>
+    <string name="open_link_in_external_browser">以外部瀏覽器開啟連結</string>
+    <string name="view_qrcode">查看QR Code</string>
+    <string name="shorten_url">縮短網址</string>
+    <string name="require_url">URL不可為空!</string>
+    <string name="shortening_url">正在縮短網址...</string>
+    <string name="first_time_shorten_url_dialog_title">關於ZeroQR中的縮短網址</string>
+    <string name="first_time_shorten_url_dialog_message">ZeroQR將會使用您的網際網路連線至QuickURL(短網址服務)來取得縮短的網址。\n\nZeroQR中的縮短網址服務由QuickURL提供</string>
+    <string name="custom_id">自訂ID</string>
+    <string name="require_custom_id">自訂ID不可為空!</string>
+    <string name="unable_to_shorten_url_dialog_title">無法縮短網址</string>
+    <string name="unable_to_shorten_url_dialog_message">由於發生未知的錯誤，所以無法縮短網址，請確認您的網際網路連線並在試一次。</string>
+    <string name="custom_id_already_used_dialog_title">自訂ID已被其他人使用</string>
+    <string name="custom_id_already_used_dialog_message">您輸入的自訂ID已被其他人使用，請輸入其他的自訂ID。</string>
+    <string name="invalid_url">請輸入正確格式的URL!</string>
+    <string name="delete">刪除</string>
+</resources>
