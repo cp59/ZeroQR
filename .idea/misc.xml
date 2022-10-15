@@ -91,35 +91,50 @@
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_qr_code_scanner.xml" value="0.13541666666666666" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/ic_qr_code_scanner_for_button.xml" value="0.13541666666666666" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/drawable/round_image.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/activity_generator_result.xml" value="0.264" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/activity_app_to_play_store_url_activity.xml" value="0.2682291666666667" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/activity_app_to_play_store_urlactivity.xml" value="0.42864583333333334" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/activity_find_geo_location.xml" value="0.33" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/activity_generate.xml" value="0.42864583333333334" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/activity_generator_result.xml" value="0.5" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/activity_help.xml" value="0.2520833333333333" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/activity_result.xml" value="0.2" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/app_widget.xml" value="0.14270833333333333" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_application_bottom_sheet_dialog_layout.xml" value="0.14270833333333333" />
-        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_calendar_bottom_sheet_dialog_layout.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_calendar_bottom_sheet_dialog_layout.xml" value="0.5" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_calendar_layout.xml" value="0.25" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_email_bottom_sheet_dialog_layout.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_email_layout.xml" value="0.42864583333333334" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_location_bottom_sheet_dialog_layout.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_location_layout.xml" value="0.42864583333333334" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_plain_text_bottom_sheet_dialog_layout.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_plain_text_layout.xml" value="0.42864583333333334" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_sms_bottom_sheet_dialog_layout.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_sms_layout.xml" value="0.42864583333333334" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_telephone_bottom_sheet_dialog_layout.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_telephone_layout.xml" value="0.42864583333333334" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_url_bottom_sheet_dialog_layout.xml" value="0.33" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_url_layout.xml" value="0.42864583333333334" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_wifi_bottom_sheet_dialog_layout.xml" value="0.22" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/create_wifi_type.xml" value="0.29010416666666666" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/datetime_picker_dialog_layout.xml" value="0.33" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/encryption_type_list_item.xml" value="0.2682291666666667" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/fragment_generator.xml" value="0.22" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/fragment_history.xml" value="0.223731884057971" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/fragment_scanner.xml" value="0.176" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/fragment_settings.xml" value="0.223731884057971" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/history_result_list_item.xml" value="0.45454545454545453" />
-        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/installed_app_list.xml" value="0.42864583333333334" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/installed_app_list.xml" value="0.67" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/list_item.xml" value="0.11979166666666667" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/qr_code_scanner_layout.xml" value="0.11979166666666667" />
-        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/result_action_layout.xml" value="0.5678832116788322" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/result_action_layout.xml" value="0.22" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/save_result_bottom_sheet_dialog_layout.xml" value="0.264" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/scan_result_list_item.xml" value="0.264" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/set_qrcode_title_dialog_layout.xml" value="0.213768115942029" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/shorten_url_bottom_sheet_dialog_layout.xml" value="0.2682291666666667" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/layout/shorten_url_dialog_layout.xml" value="0.33" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/menu/bottom_nav_menu.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/menu/generate_activity_actionbar_menu.xml" value="0.42864583333333334" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/menu/generator_bottom_nav_menu.xml" value="0.4" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.15885416666666666" />
         <entry key="..\:/Users/cpliang/AndroidStudioProjects/ZeroQR/app/src/main/res/xml/root_preferences.xml" value="0.33" />

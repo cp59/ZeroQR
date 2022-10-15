@@ -10,6 +10,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_marginBottom="130dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical">
         <ScrollView
             android:layout_width="match_parent"
@@ -38,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:gravity="center"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="50dp"
         android:padding="10dp">
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/shareResultFab"
@@ -46,8 +47,10 @@
             android:layout_height="wrap_content"
             android:text="@string/share"
             android:textAlignment="center"
+            android:layout_margin="10dp"
             app:icon="@drawable/ic_share"
-            app:tint="@color/white"
+            app:iconTint="@color/white"
+            android:textColor="@color/white"
             app:backgroundTint="?attr/colorPrimary"
             android:layout_marginRight="10dp"
             app:iconGravity="textStart" />
@@ -57,8 +60,10 @@
             android:layout_height="wrap_content"
             android:text="@string/save"
             android:textAlignment="center"
+            android:layout_margin="10dp"
             app:icon="@drawable/ic_save"
-            app:tint="@color/white"
+            app:iconTint="@color/white"
+            android:textColor="@color/white"
             app:backgroundTint="?attr/colorPrimary"
             app:iconGravity="textStart"/>
     </LinearLayout>

@@ -10,9 +10,11 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
     <uses-feature android:name="android.hardware.location.gps" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <queries>
         <intent>
@@ -28,12 +30,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ZeroQR">
+        <activity
+            android:name=".AppToPlayStoreURLActivity"
+            android:exported="false"
+            android:label="@string/generate_application_type"/>
+        <activity
+            android:name=".FindGeoLocationActivity"
+            android:exported="false"
+            android:label="@string/finding_location" />
+        <activity
+            android:name=".GenerateActivity"
+            android:exported="false" />
+
         <service
-            android:name="com.zeroapp.zeroqr.GetLocationService"
+            android:name=".GetLocationService"
             android:enabled="true"
             android:exported="false"
-            android:foregroundServiceType="location">
-        </service>
+            android:foregroundServiceType="location" />
+
         <receiver
             android:name=".AppWidget"
             android:exported="true">

@@ -3,31 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
-    android:paddingTop="20dp"
     android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/generate_wifi_dialog_title"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ssidInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="@string/ssid"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_ssid"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-
+            android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
     <CheckBox
-        android:id="@+id/ssidHiddenCheckBox"
+        android:id="@+id/hiddenSsidCheckBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/hidden"
@@ -41,45 +33,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/encryption">
-
         <AutoCompleteTextView
-            android:id="@+id/encryption_spinner"
+            android:id="@+id/encryptionSpinner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="none"
-            />
+            android:inputType="none" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputlayout_password"
+        android:id="@+id/passwordInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="@string/password"
+        app:passwordToggleEnabled="true"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            />
-
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/cancel_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@android:string/cancel"/>
-        <Button
-            android:id="@+id/create_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@android:string/ok"/>
-    </LinearLayout>
-
 </LinearLayout>

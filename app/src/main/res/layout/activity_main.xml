@@ -12,6 +12,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="56dp"/>
+    <com.google.android.material.circularreveal.CircularRevealFrameLayout
+        android:id="@+id/circularRevealFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:background="?colorPrimary"
+        app:layout_behavior="com.google.android.material.transformation.FabTransformationSheetBehavior">
+
+    </com.google.android.material.circularreveal.CircularRevealFrameLayout>
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"

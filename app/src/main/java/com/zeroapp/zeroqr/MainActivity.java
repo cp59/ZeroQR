@@ -1,13 +1,9 @@
 package com.zeroapp.zeroqr;
 
-import static com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY;
-
 import android.Manifest;
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.AssetFileDescriptor;
@@ -15,43 +11,27 @@ import android.content.res.Configuration;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.PendingResult;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.location.LocationSettingsRequest;
-import com.google.android.gms.location.LocationSettingsResult;
-import com.google.android.gms.location.LocationSettingsStatusCodes;
-import com.google.android.gms.tasks.CancellationTokenSource;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.circularreveal.CircularRevealFrameLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.MultiFormatReader;
@@ -71,22 +51,14 @@ import ezvcard.VCard;
 import ezvcard.VCardVersion;
 
 
-public class MainActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private FloatingActionButton fab;
     private Boolean isScannerMode,isHistoryMode,isSettingsMode;
-    private Boolean requestingCameraPermission;
-    private Boolean requestingReadContactsPermission;
-    private Boolean requestingLocationPermission;
+    private Boolean requestingCameraPermission = false,requestingReadContactsPermission = false;
     public static Boolean requestingStoragePermission;
-    private SharedPreferences settings;
-    private SharedPreferences.Editor editor;
-    private TextInputEditText inputLatitude;
-    private TextInputEditText inputLongitude;
-    private ProgressDialog locationProgressDialog;
-    private GoogleApiClient googleApiClient;
     private Integer orientation;
-    protected static final int REQUEST_CHECK_SETTINGS = 2;
+    private CircularRevealFrameLayout circularRevealFrameLayout;
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
@@ -134,17 +106,13 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         isScannerMode=false;
         isHistoryMode=false;
         isSettingsMode=false;
         orientation=getResources().getConfiguration().orientation;
-        requestingCameraPermission=false;
-        requestingReadContactsPermission=false;
-        requestingLocationPermission=false;
         requestingStoragePermission=false;
-        settings = getApplicationContext().getSharedPreferences("ZeroQR", 0);
-        editor = settings.edit();
+        SharedPreferences settings = getApplicationContext().getSharedPreferences("ZeroQR", 0);
+        circularRevealFrameLayout=findViewById(R.id.circularRevealFrameLayout);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setBackground(null);
         bottomNavigationView.getMenu().getItem(0).setCheckable(false);
@@ -159,29 +127,61 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                     back();
                 } else {
                     if (isScannerMode) {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new GeneratorFragment()).commit();
+                        fab.setExpanded(true);
+                        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.frameLayout, new GeneratorFragment()).commit();
                         fab.setImageResource(R.drawable.ic_qr_code_scanner);
                         isScannerMode = false;
+                        Animation fadeOutAnim = AnimationUtils.loadAnimation(MainActivity.this,R.anim.simple_fade_out);
+                        fadeOutAnim.setAnimationListener(new Animation.AnimationListener() {
+                            @Override
+                            public void onAnimationStart(Animation animation) {
+
+                            }
+
+                            @Override
+                            public void onAnimationEnd(Animation animation) {
+                                circularRevealFrameLayout.setVisibility(View.INVISIBLE);
+                                fab.show();
+                                fab.setExpanded(false);
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animation animation) {
+
+                            }
+                        });
+                        circularRevealFrameLayout.setAnimation(fadeOutAnim);
                     } else {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new ScannerFragment()).commit();
+                        fab.setExpanded(true);
+                        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.frameLayout, new ScannerFragment()).commit();
                         fab.setImageResource(R.drawable.ic_add);
                         isScannerMode = true;
+                        Animation fadeOutAnim = AnimationUtils.loadAnimation(MainActivity.this,R.anim.simple_fade_out);
+                        fadeOutAnim.setAnimationListener(new Animation.AnimationListener() {
+                            @Override
+                            public void onAnimationStart(Animation animation) {
+
+                            }
+
+                            @Override
+                            public void onAnimationEnd(Animation animation) {
+                                circularRevealFrameLayout.setVisibility(View.INVISIBLE);
+                                fab.show();
+                                fab.setExpanded(false);
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animation animation) {
+
+                            }
+                        });
+                        circularRevealFrameLayout.setAnimation(fadeOutAnim);
                     }
                 }
 
             }
-        });
-        locationProgressDialog = new ProgressDialog(MainActivity.this);
-        locationProgressDialog.setMessage(getString(R.string.finding_location));
-        locationProgressDialog.setCancelable(false);
-        googleApiClient = new GoogleApiClient.Builder(MainActivity.this)
-                .addApi(LocationServices.API)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this).build();
-        googleApiClient.connect();
-        Intent intent = getIntent();
+        });Intent intent = getIntent();
         String action = intent.getAction();
-        String type = intent.getType();
         if ("com.zeroapp.zeroqr.scan".equals(action)){
             getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new ScannerFragment()).commit();
             fab.setImageResource(R.drawable.ic_add);
@@ -196,7 +196,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             isScannerMode = true;
         } else {
             getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new GeneratorFragment()).commit();
-
             fab.setImageResource(R.drawable.ic_qr_code_scanner);
             isScannerMode = false;
         }
@@ -225,7 +224,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         }
     }
     public void scanQRImage(Bitmap bMap) {
-        String content = null;
+        String content;
         int[] intArray = new int[bMap.getWidth()*bMap.getHeight()];
         bMap.getPixels(intArray, 0, bMap.getWidth(), 0, 0, bMap.getWidth(), bMap.getHeight());
         LuminanceSource source = new RGBLuminanceSource(bMap.getWidth(), bMap.getHeight(), intArray);
@@ -238,7 +237,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             srintent.putExtra("CONTENT", content);
             startActivity(srintent);
         } catch (Exception e) {
-            Log.e("QrTest", "Error decoding barcode", e);
             new AlertDialog.Builder(MainActivity.this)
                     .setTitle(getString(R.string.qr_code_not_found))
                     .setNegativeButton(android.R.string.ok, null)
@@ -303,74 +301,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_CONTACTS}, 1);
 
             }
-        } else if (requestingLocationPermission) {
-            requestingLocationPermission = false;
-            setLocationFromGPS();
-        }
-    }
-    public void locationSetEditText(TextInputEditText latitude,TextInputEditText longitude) {
-        inputLatitude = latitude;
-        inputLongitude = longitude;
-    }
-    public void setLocationFromGPS(){
-        if (ContextCompat.checkSelfPermission(
-                MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) ==
-                PackageManager.PERMISSION_GRANTED) {
-            LocationRequest locationRequest = LocationRequest.create();
-            locationRequest.setPriority(PRIORITY_HIGH_ACCURACY);
-            locationRequest.setInterval(10000);
-            locationRequest.setFastestInterval(10000 / 2);
-
-            LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder().addLocationRequest(locationRequest);
-            builder.setAlwaysShow(true);
-
-            PendingResult<LocationSettingsResult> result = LocationServices.SettingsApi.checkLocationSettings(googleApiClient, builder.build());
-            result.setResultCallback(new ResultCallback<LocationSettingsResult>() {
-                @Override
-                public void onResult(LocationSettingsResult result) {
-                    final Status status = result.getStatus();
-                    switch (status.getStatusCode()) {
-                        case LocationSettingsStatusCodes.SUCCESS:
-                            locationProgressDialog.show();
-                            FusedLocationProviderClient mFusedLocationClient = LocationServices.getFusedLocationProviderClient(MainActivity.this);
-                            mFusedLocationClient.getCurrentLocation(PRIORITY_HIGH_ACCURACY,new CancellationTokenSource().getToken())
-                                    .addOnSuccessListener(new OnSuccessListener<Location>() {
-                                        @Override
-                                        public void onSuccess(Location location) {
-                                            // GPS location can be null if GPS is switched off
-                                            if (location != null) {
-                                                inputLatitude.setText(String.valueOf(location.getLatitude()));
-                                                inputLongitude.setText(String.valueOf(location.getLongitude()));
-                                                locationProgressDialog.cancel();
-                                            }
-                                        }
-                                    })
-                                    .addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            locationProgressDialog.cancel();
-                                            Log.d("MapDemoActivity", "Error trying to get last GPS location");
-                                            e.printStackTrace();
-                                        }
-                                    });
-                            break;
-                        case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
-                            try {
-                                status.startResolutionForResult(MainActivity.this, REQUEST_CHECK_SETTINGS);
-                            } catch (IntentSender.SendIntentException e) {
-                            }
-                            break;
-                        case LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE:
-                            break;
-                    }
-                }
-            });
-        } else if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,Manifest.permission.ACCESS_FINE_LOCATION)) {
-            locationPermissionDenied();
-
-        } else {
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 2);
-
         }
     }
     @Override
@@ -381,8 +311,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 cameraPermissionDenied();
             } else if (requestCode==1) {
                 readContactsPermissionDenied();
-            } else if (requestCode==2) {
-                locationPermissionDenied();
             } else if (requestCode==3) {
                 storagePermissionDenied(MainActivity.this);
             }
@@ -392,8 +320,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             } else if (requestCode==1) {
                 Intent contactPickerIntent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
                 startActivityForResult(contactPickerIntent, 1);
-            } else if (requestCode==2) {
-                setLocationFromGPS();
             } else if (requestCode==3) {
                 GeneratorResultActivity.saveImage(GeneratorResultActivity.resultBitmapWithLogo, MainActivity.this, "ZeroQR");
                 Snackbar.make(findViewById(android.R.id.content), getString(R.string.saved_to_album), Snackbar.LENGTH_LONG).show();
@@ -450,35 +376,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                     Toast.makeText(this, "Failed to load Contact", Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
                 }
-            }
-        } else if(requestCode==REQUEST_CHECK_SETTINGS) {
-            switch (resultCode) {
-                case Activity.RESULT_OK:
-                    locationProgressDialog.show();
-                    FusedLocationProviderClient mFusedLocationClient = LocationServices.getFusedLocationProviderClient(MainActivity.this);
-                    mFusedLocationClient.getCurrentLocation(PRIORITY_HIGH_ACCURACY, new CancellationTokenSource().getToken())
-                            .addOnSuccessListener(new OnSuccessListener<Location>() {
-                                @Override
-                                public void onSuccess(Location location) {
-                                    // GPS location can be null if GPS is switched off
-                                    if (location != null) {
-                                        inputLatitude.setText(String.valueOf(location.getLatitude()));
-                                        inputLongitude.setText(String.valueOf(location.getLongitude()));
-                                        locationProgressDialog.cancel();
-                                    }
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    locationProgressDialog.cancel();
-                                    Log.d("MapDemoActivity", "Error trying to get last GPS location");
-                                    e.printStackTrace();
-                                }
-                            });
-                    break;
-                case Activity.RESULT_CANCELED:
-                    break;
             }
         } else if (requestCode==4){
             if (resultCode==RESULT_OK){
@@ -575,53 +472,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                     }
                 }).show();
     }
-    public void locationPermissionDenied(){
-        new AlertDialog.Builder(MainActivity.this)
-                .setTitle(getString(R.string.request_permission))
-                .setMessage(getString(R.string.location_permission_denied_dialog_message))
-                .setCancelable(false)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)) {
-                            new AlertDialog.Builder(MainActivity.this)
-                                    .setTitle(getString(R.string.grant_permission_from_settings_dialog_title))
-                                    .setMessage(getString(R.string.grant_permission_from_settings_dialog_message))
-                                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int id) {
-                                            dialog.cancel();
-                                            Intent intent = new Intent(
-                                                    Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                                                    Uri.fromParts("package", getPackageName(), null));
-                                            startActivity(intent);
-                                            requestingLocationPermission = true;
-                                        }
-                                    })
-                                    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int id) {
-                                            dialog.cancel();
-                                        }
-                                    }).show();
-                        } else {
-                            if (ContextCompat.checkSelfPermission(
-                                    MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) ==
-                                    PackageManager.PERMISSION_GRANTED) {
-                                setLocationFromGPS();
-                            } else if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,Manifest.permission.ACCESS_FINE_LOCATION)) {
-                                locationPermissionDenied();
-
-                            } else {
-                                ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 2);
-
-                            }
-                        }
-                    }
-                })
-                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                }).show();
-    }
     public static void storagePermissionDenied(Activity activity){
         new AlertDialog.Builder(activity)
                 .setTitle(activity.getString(R.string.request_permission))
@@ -659,20 +509,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
                     }
                 }).show();
-    }
-    @Override
-    public void onConnected(@Nullable Bundle bundle) {
-
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
     }
 
     @Override
