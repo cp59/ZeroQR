@@ -2,15 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/action_scan_mode"
+        android:icon="@drawable/ic_qr_code_scanner"
+        android:title="@string/scan_mode"/>
+
+    <item
+        android:id="@+id/action_create_mode"
+        android:icon="@drawable/ic_add"
+        android:title="@string/create_mode"/>
+
+    <item
         android:id="@+id/action_history"
         android:icon="@drawable/ic_history"
         android:title="@string/history" />
-
-
-    <item
-        android:id="@+id/placeholder"
-        android:title="" />
-
 
     <item
         android:id="@+id/action_settings"

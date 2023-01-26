@@ -10,10 +10,7 @@ import android.widget.RemoteViews;
 public class AppWidget extends AppWidgetProvider {
 
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        // Perform this loop procedure for each widget that belongs to this
-        // provider.
-        for (int i=0; i < appWidgetIds.length; i++) {
-            int appWidgetId = appWidgetIds[i];
+        for (int appWidgetId : appWidgetIds) {
             Intent createIntent = new Intent(context, MainActivity.class);
             createIntent.setAction("com.zeroapp.zeroqr.create");
             PendingIntent createPendingIntent = PendingIntent.getActivity(

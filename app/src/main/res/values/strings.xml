@@ -11,9 +11,6 @@
         <item>WEP</item>
         <item>None</item>
     </string-array>
-    <string name="save">Save</string>
-    <string name="generator_fragment_title">Create QR Code</string>
-    <string name="generator_fragment_description">Select type to create QR Code</string>
     <string name="plain_text">Plain text</string>
     <string name="url">URL</string>
     <string name="email">Email</string>
@@ -42,10 +39,9 @@
     <string name="ssid">SSID</string>
     <string name="password">Password</string>
     <string name="hidden">Hidden</string>
-    <string name="title_activity_settings">Settings</string>
     <string name="help">Help</string>
     <string name="about">About ZeroQR</string>
-    <string name="version_string">1.5(Release)</string>
+    <string name="version_string">1.6(Release)</string>
     <string name="scan_qr_code">Scan QR Code</string>
     <string name="generate_qr_code">Create QR Code</string>
     <string-array name="startModeEntries">
@@ -106,8 +102,6 @@
     <string name="color">Color</string>
     <string name="logo">Logo</string>
     <string name="title">Title</string>
-    <string name="fit_screen_size">Fit screen size</string>
-    <string name="title_activity_color_picker">Color Picker</string>
     <string name="foreground_color">Foreground Color</string>
     <string name="background_color">Background Color</string>
     <string name="title_color">Title Color</string>
@@ -135,7 +129,6 @@
     <string name="no_history">No history</string>
     <string name="save_scan_history">Save scan QR Code history</string>
     <string name="save_create_history">Save create QR Code history</string>
-    <string name="refresh">Refresh</string>
     <string name="clear_history_dialog_title">Are you sure you want to clear the history?</string>
     <string name="scan_mode">Scan mode</string>
     <string name="create_mode">Create mode</string>
@@ -148,13 +141,10 @@
     <string name="wifi_connect_not_support_android_10">Currently does not support Wi-Fi connection above Android 10</string>
     <string name="version">Version</string>
     <string name="legal_information">Legal information</string>
-    <string name="copyright_string">Copyright 2022 ZeroApp All rights reserved.</string>
+    <string name="copyright_string">Copyright 2023 ZeroApp All rights reserved.</string>
     <string name="select_image">Select Image</string>
     <string name="share_image">Share Image</string>
     <string name="scan_from_image">Scan from image</string>
-    <string name="switch_camera_help_text">Click this button to switch to the front camera or the rear camera!</string>
-    <string name="scan_from_image_help_text">Click this button to scan the QR Code of the picture in the device!</string>
-    <string name="flashlight_help_text">Click this button to enable or disable the flashlight!</string>
     <string name="storage_permission_denied_dialog_message">You must allow ZeroQR to use your storage to save QR Code image. ZeroQR will not use your storage for purposes other than image saving.</string>
     <string name="maxHistorySaveNumber">Maximum number of history stored</string>
     <string name="clear_history_successfully">Clear history successfully!</string>
@@ -167,17 +157,6 @@
     <string name="none">None</string>
     <string name="open_link_in_external_browser">Open link in external browser</string>
     <string name="view_qrcode">View QR Code</string>
-    <string name="shorten_url">Shorten URL</string>
-    <string name="shortening_url">Shortening URL</string>
-    <string name="first_time_shorten_url_dialog_title">About shortening URLs in ZeroQR</string>
-    <string name="first_time_shorten_url_dialog_message">ZeroQR will use your Internet connection to connect QuickURL(URL Shortening Service) to obtain the shortened URL.\n\nURL shortening service in ZeroQR is provided by QuickURL</string>
-    <string name="custom_id">Custom ID</string>
-    <string name="require_custom_id">Custom ID cannot be empty!</string>
-    <string name="unable_to_shorten_url_dialog_title">Unable to shorten URL</string>
-    <string name="unable_to_shorten_url_dialog_message">The URL could not be shortened due to an unknown error. Please confirm your internet connection and try again.</string>
-    <string name="custom_id_already_used_dialog_title">Custom ID already used by someone else</string>
-    <string name="custom_id_already_used_dialog_message">The custom ID you entered is already used by someone else, please enter a different custom ID.</string>
-    <string name="invalid_url">Please enter a properly formatted URL!</string>
     <string name="delete">Delete</string>
     <string name="field_required">This field cannot be empty</string>
     <string name="year">Year</string>
@@ -186,5 +165,6 @@
     <string name="hour">Hour</string>
     <string name="minute">Minute</string>
     <string name="generate_application_type">Generate application type QR Code</string>
-    <string name="require_url">URL cannot be empty!</string>
+    <string name="wrong_input_format">Wrong input format</string>
+    <string name="fill_in_from_contacts">Fill in from contacts</string>
 </resources>

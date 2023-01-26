@@ -1,15 +1,11 @@
 package com.zeroapp.zeroqr;
 
-import static com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY;
-
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
-import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -20,32 +16,28 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.PendingResult;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
-import com.google.android.gms.location.LocationSettingsResult;
+import com.google.android.gms.location.LocationSettingsResponse;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
+import com.google.android.gms.location.Priority;
 import com.google.android.gms.tasks.CancellationTokenSource;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class FindGeoLocationActivity extends AppCompatActivity {
-    private GoogleApiClient googleApiClient;
     private Boolean requestingLocationPermission = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_geo_location);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        googleApiClient = new GoogleApiClient.Builder(this)
-                .addApi(LocationServices.API)
-                .build();
-        googleApiClient.connect();
+        MaterialToolbar topAppBar = findViewById(R.id.topAppBar);
+        topAppBar.setNavigationOnClickListener(view -> onBackPressed());
         int locationPermissionGranted = checkLocationPermission();
         if (locationPermissionGranted==0) {
             getLocation();
@@ -57,30 +49,23 @@ public class FindGeoLocationActivity extends AppCompatActivity {
     }
 
     private void locationPermissionDenied() {
-        new AlertDialog.Builder(FindGeoLocationActivity.this)
+        new MaterialAlertDialogBuilder(FindGeoLocationActivity.this)
                 .setTitle(getString(R.string.request_permission))
                 .setMessage(getString(R.string.location_permission_denied_dialog_message))
                 .setCancelable(false)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        int locationPermissionGranted = checkLocationPermission();
-                        if (locationPermissionGranted==1) {
-                            Intent intent = new Intent(
-                                    Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                                    Uri.fromParts("package", getPackageName(), null));
-                            startActivity(intent);
-                            requestingLocationPermission = true;
-                        } else {
-                            ActivityCompat.requestPermissions(FindGeoLocationActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 0);
-                        }
+                .setPositiveButton(android.R.string.ok, (dialog, id) -> {
+                    int locationPermissionGranted = checkLocationPermission();
+                    if (locationPermissionGranted==1) {
+                        Intent intent = new Intent(
+                                Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                                Uri.fromParts("package", getPackageName(), null));
+                        startActivity(intent);
+                        requestingLocationPermission = true;
+                    } else {
+                        ActivityCompat.requestPermissions(FindGeoLocationActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 0);
                     }
                 })
-                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        finish();
-                    }
-                })
+                .setNegativeButton(android.R.string.cancel, (dialogInterface, i) -> finish())
                 .show();
     }
 
@@ -96,46 +81,42 @@ public class FindGeoLocationActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("MissingPermission")
     public void getLocation(){
-        LocationRequest locationRequest = LocationRequest.create();
-        locationRequest.setPriority(PRIORITY_HIGH_ACCURACY);
-        locationRequest.setInterval(10000);
-        locationRequest.setFastestInterval(10000 / 2);
+        LocationRequest locationRequest = new LocationRequest.Builder(10000)
+                .setPriority(Priority.PRIORITY_HIGH_ACCURACY)
+                .setIntervalMillis(10000)
+                .setMinUpdateIntervalMillis(5000)
+                .build();
         LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder().addLocationRequest(locationRequest);
         builder.setAlwaysShow(true);
-        PendingResult<LocationSettingsResult> result = LocationServices.SettingsApi.checkLocationSettings(googleApiClient, builder.build());
-        result.setResultCallback(new ResultCallback<LocationSettingsResult>() {
-            @Override
-            public void onResult(LocationSettingsResult result) {
-                final Status status = result.getStatus();
-                switch (status.getStatusCode()) {
-                    case LocationSettingsStatusCodes.SUCCESS:
-                        FusedLocationProviderClient mFusedLocationClient = LocationServices.getFusedLocationProviderClient(FindGeoLocationActivity.this);
-                        mFusedLocationClient.getCurrentLocation(PRIORITY_HIGH_ACCURACY,new CancellationTokenSource().getToken())
-                                .addOnSuccessListener(new OnSuccessListener<Location>() {
-                                    @Override
-                                    public void onSuccess(Location location) {
-                                        if (location != null) {
-                                            getIntent().putExtra("lat",String.valueOf(location.getLatitude()));
-                                            getIntent().putExtra("long",String.valueOf(location.getLongitude()));
-                                            setResult(RESULT_OK,getIntent());
-                                            finish();
-                                        } else {
-                                            finish();
-                                        }
-                                    }
-                                })
-                                .addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        finish();
-                                    }
-                                });
-                        break;
+        Task<LocationSettingsResponse> task = LocationServices.getSettingsClient(this).checkLocationSettings(builder.build());
+        task.addOnCompleteListener(task1 -> {
+            try {
+                task1.getResult(ApiException.class);
+                FusedLocationProviderClient mFusedLocationClient = LocationServices.getFusedLocationProviderClient(FindGeoLocationActivity.this);
+                mFusedLocationClient.getCurrentLocation(Priority.PRIORITY_HIGH_ACCURACY,new CancellationTokenSource().getToken())
+                        .addOnSuccessListener(location -> {
+                            if (location != null) {
+                                getIntent().putExtra("lat",String.valueOf(location.getLatitude()));
+                                getIntent().putExtra("long",String.valueOf(location.getLongitude()));
+                                setResult(RESULT_OK,getIntent());
+                                finish();
+                            } else {
+                                finish();
+                            }
+                        })
+                        .addOnFailureListener(e -> finish());
+            } catch (ApiException exception) {
+                switch (exception.getStatusCode()) {
                     case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
                         try {
-                            status.startResolutionForResult(FindGeoLocationActivity.this, 2);
-                        } catch (IntentSender.SendIntentException e) {
+                            ResolvableApiException resolvable = (ResolvableApiException) exception;
+                            resolvable.startResolutionForResult(
+                                    FindGeoLocationActivity.this,
+                                    2);
+                        } catch (IntentSender.SendIntentException | ClassCastException e) {
+                            finish();
                         }
                         break;
                     case LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE:
@@ -145,13 +126,6 @@ public class FindGeoLocationActivity extends AppCompatActivity {
             }
         });
     }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return super.onSupportNavigateUp();
-    }
-
     @Override
     protected void onResume() {
         super.onResume();

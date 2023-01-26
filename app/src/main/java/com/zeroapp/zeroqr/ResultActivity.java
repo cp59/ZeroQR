@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.ResolveInfo;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
@@ -13,17 +12,17 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.provider.Telephony;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.FileProvider;
+
+import com.google.android.material.appbar.MaterialToolbar;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -33,7 +32,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.TimeZone;
 import java.util.regex.Pattern;
 
@@ -43,15 +44,13 @@ public class ResultActivity extends AppCompatActivity {
     private Float latitude;
     private Float longitude;
     private List<Map<String, String>> listArray;
-    private static final String DataBaseName = "HistoryDataBase";
-    private static final int DataBaseVersion = 1;
     private ContentValues contentValues;
     private Intent eventIntent;
     public void addResultListData(String titleKey, String detailKey) {
         Map<String, String> listItem = new HashMap<>();
         listItem.put("titleKey", titleKey);
         listItem.put("detailKey", detailKey);
-        if (titleKey!=getString(R.string.type)){
+        if (!Objects.equals(titleKey, getString(R.string.type))){
             parsedContent+=titleKey+":"+detailKey+"\n";
         } else {
             contentValues.put("type", detailKey);
@@ -63,10 +62,11 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         setTitle(getString(R.string.qr_code_detected));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        MaterialToolbar topAppBar = findViewById(R.id.topAppBar);
+        topAppBar.setNavigationOnClickListener(view -> onBackPressed());
         SharedPreferences settings = getApplicationContext().getSharedPreferences("ZeroQR", 0);
         String dataBaseTable = "History";
-        HistorySQLDataBaseHelper historySQLDataBaseHelper = new HistorySQLDataBaseHelper(getApplicationContext(), DataBaseName, null, DataBaseVersion, dataBaseTable);
+        HistorySQLDataBaseHelper historySQLDataBaseHelper = new HistorySQLDataBaseHelper(getApplicationContext());
         SQLiteDatabase db = historySQLDataBaseHelper.getWritableDatabase();
         content = getIntent().getStringExtra("CONTENT");
         parsedContent="";
@@ -86,7 +86,7 @@ public class ResultActivity extends AppCompatActivity {
         CardView viewQRCodeButton = resultActionLayout.findViewById(R.id.viewQRCodeButton);
         listArray = new ArrayList<>();
         contentValues = new ContentValues();
-        SimpleDateFormat formatter= new SimpleDateFormat("yyyy'/'MM'/'dd HH':'mm");
+        SimpleDateFormat formatter= new SimpleDateFormat("yyyy'/'MM'/'dd HH':'mm", Locale.getDefault());
         Date date = new Date(System.currentTimeMillis());
         contentValues.put("time",formatter.format(date));
         contentValues.put("source",getString(R.string.scan_mode));
@@ -121,7 +121,7 @@ public class ResultActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     networkSSID = "";
                 }
-                if (networkSSID != "") {
+                if (!Objects.equals(networkSSID, "")) {
                     try {
                         networkPass = content.split("P:")[1].split(";")[0];
                     } catch (Exception e) {
@@ -168,20 +168,19 @@ public class ResultActivity extends AppCompatActivity {
                 Date dtStartDate = null;
                 Date dtEndDate = null;
                 String dtEnd = null;
-                for (int i = 0; i < contentLineList.length; i++) {
-                    String contentLine = contentLineList[i];
+                for (String contentLine : contentLineList) {
                     if (contentLine.toUpperCase().startsWith("SUMMARY:")) {
                         summary = contentLine.substring(8);
                     } else if (contentLine.toUpperCase().startsWith("DTSTART:")) {
-                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd'T'HHmmss'Z'");
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd'T'HHmmss'Z'", Locale.getDefault());
                         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
                         dtStartDate = simpleDateFormat.parse(contentLine.substring(8));
-                        dtStart = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(dtStartDate);
+                        dtStart = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.getDefault()).format(dtStartDate);
                     } else if (contentLine.toUpperCase().startsWith("DTEND:")) {
-                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd'T'HHmmss'Z'");
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd'T'HHmmss'Z'", Locale.getDefault());
                         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
                         dtEndDate = simpleDateFormat.parse(contentLine.substring(6));
-                        dtEnd = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(dtEndDate);
+                        dtEnd = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.getDefault()).format(dtEndDate);
                     } else if (contentLine.toUpperCase().startsWith("LOCATION:")) {
                         location = contentLine.substring(9);
                     } else if (contentLine.toUpperCase().startsWith("DESCRIPTION:")) {
@@ -222,13 +221,13 @@ public class ResultActivity extends AppCompatActivity {
             addResultListData(getString(R.string.type), getString(R.string.plain_text));
             addResultListData(getString(R.string.content), content);
         }
-        final Boolean saveToHistory = getIntent().getBooleanExtra("saveToHistory", settings.getBoolean("saveScanHistory",true));
+        final boolean saveToHistory = getIntent().getBooleanExtra("saveToHistory", settings.getBoolean("saveScanHistory",true));
         contentValues.put("content",content);
         parsedContent = parsedContent.substring(0, parsedContent.lastIndexOf("\n"));
         contentValues.put("parsedContent",parsedContent);
         if (saveToHistory) {
             db.insert(dataBaseTable, null, contentValues);
-            Integer maxHistorySaveNumber = settings.getInt("maxHistorySaveNumber",0);
+            int maxHistorySaveNumber = settings.getInt("maxHistorySaveNumber",0);
             if (maxHistorySaveNumber!=0) {
                 long historyNumber = DatabaseUtils.queryNumEntries(db,"History");
                 if (historyNumber>maxHistorySaveNumber) {
@@ -238,148 +237,111 @@ public class ResultActivity extends AppCompatActivity {
         }
         SimpleAdapter simpleAdapter = new SimpleAdapter(ResultActivity.this,listArray,R.layout.scan_result_list_item,new String[]{"titleKey","detailKey"},new int[]{R.id.text1,R.id.text2});
         resultListView.setAdapter(simpleAdapter);
-        shareButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent shareintent = new Intent(Intent.ACTION_SEND);
-                shareintent.setType("text/plain");
-                shareintent.putExtra(Intent.EXTRA_TEXT, content);
-                startActivity(Intent.createChooser(shareintent, getString(R.string.share)));
+        shareButton.setOnClickListener(v -> {
+            Intent shareintent = new Intent(Intent.ACTION_SEND);
+            shareintent.setType("text/plain");
+            shareintent.putExtra(Intent.EXTRA_TEXT, content);
+            startActivity(Intent.createChooser(shareintent, getString(R.string.share)));
+        });
+        copyButton.setOnClickListener(v -> {
+            android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+            android.content.ClipData clip = android.content.ClipData.newPlainText("text label", content);
+            clipboard.setPrimaryClip(clip);
+            Toast.makeText(ResultActivity.this, getString(R.string.copied), Toast.LENGTH_LONG).show();
+        });
+        viewQRCodeButton.setOnClickListener(view -> {
+            Intent intent = new Intent(ResultActivity.this, GeneratorResultActivity.class);
+            intent.putExtra("content", content);
+            intent.putExtra("saveToHistory",false);
+            startActivity(intent);
+        });
+        openPhoneButton.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number))));
+        openMapsButton.setOnClickListener(v -> {
+            if (settings.getBoolean("openLinkInExternalBrowser", false)) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse("https://maps.google.com/local?q=" + latitude + "," + longitude));
+                startActivity(i);
+            } else {
+                CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+                CustomTabsIntent customTabsIntent = builder.build();
+                customTabsIntent.launchUrl(ResultActivity.this, Uri.parse("https://maps.google.com/local?q=" + latitude + "," + longitude));
             }
         });
-        copyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                android.content.ClipData clip = android.content.ClipData.newPlainText("text label", content);
-                clipboard.setPrimaryClip(clip);
-                Toast.makeText(ResultActivity.this, getString(R.string.copied), Toast.LENGTH_LONG).show();
-            }
-        });
-        viewQRCodeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ResultActivity.this, GeneratorResultActivity.class);
-                intent.putExtra("content", content);
-                intent.putExtra("saveToHistory",false);
+        sendEmailButton.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_SENDTO);
+            intent.setData(Uri.parse("mailto:"));
+            intent.putExtra(Intent.EXTRA_EMAIL, mailAddress);
+            intent.putExtra(Intent.EXTRA_SUBJECT, mailSubject);
+            intent.putExtra(Intent.EXTRA_TEXT, mailBody);
+            if (intent.resolveActivity(getPackageManager()) != null) {
                 startActivity(intent);
             }
         });
-        openPhoneButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number)));
-            }
+        sendMessageButton.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_SENDTO);
+            Uri uri = Uri.parse("smsto:" + number);
+            intent.setData(uri);
+            intent.putExtra("sms_body", smsMessage);
+            startActivity(intent);
         });
-        openMapsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (settings.getBoolean("openLinkInExternalBrowser",false)==true) {
+        connectNetworkButton.setOnClickListener(v -> {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                Toast.makeText(ResultActivity.this,getString(R.string.wifi_connect_not_support_android_10),Toast.LENGTH_LONG).show();
+                startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+            } else {
+                Toast.makeText(ResultActivity.this,getString(R.string.connecting_to_wifi),Toast.LENGTH_LONG).show();
+                WifiConfiguration conf = new WifiConfiguration();
+                conf.SSID = "\"" + networkSSID + "\"";
+                if (networkEncryption.equalsIgnoreCase("WEP")) {
+                    conf.wepKeys[0] = "\"" + networkPass + "\"";
+                    conf.wepTxKeyIndex = 0;
+                    conf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
+                    conf.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.WEP40);
+                } else if (networkEncryption.equalsIgnoreCase("WPA")) {
+                    conf.preSharedKey = "\""+ networkPass +"\"";
+                } else {
+                    conf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
+                }
+                WifiManager wifiManager = (WifiManager)getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+                wifiManager.addNetwork(conf);
+                List<WifiConfiguration> list = wifiManager.getConfiguredNetworks();
+                for( WifiConfiguration i : list ) {
+                    if(i.SSID != null && i.SSID.equals("\"" + networkSSID + "\"")) {
+                        wifiManager.disconnect();
+                        wifiManager.enableNetwork(i.networkId, true);
+                        wifiManager.reconnect();
+                        break;
+                    }
+                }
+
+            }
+
+        });
+        addCalendarButton.setOnClickListener(v -> startActivity(eventIntent));
+        openBrowserButton.setOnClickListener(v -> {
+            try {
+                if (settings.getBoolean("openLinkInExternalBrowser", false)) {
                     Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse("https://maps.google.com/local?q=" + latitude + "," + longitude));
+                    i.setData(Uri.parse(content));
                     startActivity(i);
                 } else {
                     CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
                     CustomTabsIntent customTabsIntent = builder.build();
-                    customTabsIntent.launchUrl(ResultActivity.this, Uri.parse("https://maps.google.com/local?q=" + latitude + "," + longitude));
+                    customTabsIntent.launchUrl(ResultActivity.this, Uri.parse(content));
                 }
+            } catch (Exception e) {
+                Toast.makeText(ResultActivity.this, getString(R.string.unable_to_load_url), Toast.LENGTH_LONG).show();
             }
         });
-        sendEmailButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_SENDTO);
-                intent.setData(Uri.parse("mailto:"));
-                intent.putExtra(Intent.EXTRA_EMAIL, mailAddress);
-                intent.putExtra(Intent.EXTRA_SUBJECT, mailSubject);
-                intent.putExtra(Intent.EXTRA_TEXT, mailBody);
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intent);
-                }
-            }
-        });
-        sendMessageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_SENDTO);
-                Uri uri = Uri.parse("smsto:" + number);
-                intent.setData(uri);
-                intent.putExtra("sms_body", smsMessage);
-                startActivity(intent);
-            }
-        });
-        connectNetworkButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    Toast.makeText(ResultActivity.this,getString(R.string.wifi_connect_not_support_android_10),Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
-                } else {
-                    Toast.makeText(ResultActivity.this,getString(R.string.connecting_to_wifi),Toast.LENGTH_LONG).show();
-                    WifiConfiguration conf = new WifiConfiguration();
-                    conf.SSID = "\"" + networkSSID + "\"";
-                    if (networkEncryption.equalsIgnoreCase("WEP")) {
-                        conf.wepKeys[0] = "\"" + networkPass + "\"";
-                        conf.wepTxKeyIndex = 0;
-                        conf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
-                        conf.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.WEP40);
-                    } else if (networkEncryption.equalsIgnoreCase("WPA")) {
-                        conf.preSharedKey = "\""+ networkPass +"\"";
-                    } else {
-                        conf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
-                    }
-                    WifiManager wifiManager = (WifiManager)getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-                    wifiManager.addNetwork(conf);
-                    List<WifiConfiguration> list = wifiManager.getConfiguredNetworks();
-                    for( WifiConfiguration i : list ) {
-                        if(i.SSID != null && i.SSID.equals("\"" + networkSSID + "\"")) {
-                            wifiManager.disconnect();
-                            wifiManager.enableNetwork(i.networkId, true);
-                            wifiManager.reconnect();
-                            break;
-                        }
-                    }
-
-                }
-
-            }
-        });
-        addCalendarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(eventIntent);
-            }
-        });
-        openBrowserButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    if (settings.getBoolean("openLinkInExternalBrowser",false)==true) {
-                        Intent i = new Intent(Intent.ACTION_VIEW);
-                        i.setData(Uri.parse(content));
-                        startActivity(i);
-                    } else {
-                        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-                        CustomTabsIntent customTabsIntent = builder.build();
-                        customTabsIntent.launchUrl(ResultActivity.this, Uri.parse(content));
-                    }
-                } catch (Exception e) {
-                    Toast.makeText(ResultActivity.this, getString(R.string.unable_to_load_url), Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-        searchBookButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (settings.getBoolean("openLinkInExternalBrowser",false)==true) {
-                    Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse("http://books.google.com/books?vid=ISBN"+content));
-                    startActivity(i);
-                } else {
-                    CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-                    CustomTabsIntent customTabsIntent = builder.build();
-                    customTabsIntent.launchUrl(ResultActivity.this, Uri.parse("http://books.google.com/books?vid=ISBN"+content));
-                }
+        searchBookButton.setOnClickListener(view -> {
+            if (settings.getBoolean("openLinkInExternalBrowser", false)) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse("http://books.google.com/books?vid=ISBN"+content));
+                startActivity(i);
+            } else {
+                CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+                CustomTabsIntent customTabsIntent = builder.build();
+                customTabsIntent.launchUrl(ResultActivity.this, Uri.parse("http://books.google.com/books?vid=ISBN"+content));
             }
         });
         if (content.toLowerCase().startsWith("begin:vcard")) {
@@ -387,11 +349,8 @@ public class ResultActivity extends AppCompatActivity {
                 File cachePath = new File(getCacheDir(), "files");
                 cachePath.mkdirs();
                 File newFile = new File(cachePath,"contact.vcf");
-                FileOutputStream stream = new FileOutputStream(newFile);
-                try {
+                try (FileOutputStream stream = new FileOutputStream(newFile)) {
                     stream.write(content.getBytes());
-                } finally {
-                    stream.close();
                 }
                 Uri contactUri = FileProvider.getUriForFile(ResultActivity.this, "com.zeroapp.zeroqr.fileprovider", newFile);
                 Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -403,27 +362,6 @@ public class ResultActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-    }
-
-    private static String getDefaultSmsAppPackageName(@NonNull Context context) {
-        String defaultSmsPackageName;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            defaultSmsPackageName = Telephony.Sms.getDefaultSmsPackage(context);
-            return defaultSmsPackageName;
-        } else {
-            Intent intent = new Intent(Intent.ACTION_VIEW)
-                    .addCategory(Intent.CATEGORY_DEFAULT).setType("vnd.android-dir/mms-sms");
-            final List<ResolveInfo> resolveInfos = context.getPackageManager().queryIntentActivities(intent, 0);
-            if (resolveInfos != null && !resolveInfos.isEmpty())
-                return resolveInfos.get(0).activityInfo.packageName;
-
-        }
-        return null;
-    }
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
     }
 
 }

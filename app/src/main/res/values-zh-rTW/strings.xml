@@ -12,9 +12,6 @@
         <item>WEP</item>
         <item>無加密(無密碼)</item>
     </string-array>
-    <string name="save">儲存</string>
-    <string name="generator_fragment_title">建立QR Code</string>
-    <string name="generator_fragment_description">選擇類型來建立QR Code</string>
     <string name="url">URL</string>
     <string name="plain_text">純文字</string>
     <string name="email">電子郵件</string>
@@ -43,10 +40,9 @@
     <string name="ssid">SSID</string>
     <string name="password">密碼</string>
     <string name="hidden">隱藏網路</string>
-    <string name="title_activity_settings">設定</string>
     <string name="help">說明</string>
     <string name="about">關於ZeroQR</string>
-    <string name="version_string">1.5(正式版)</string>
+    <string name="version_string">1.6(正式版)</string>
     <string name="scan_qr_code">掃描QR Code</string>
     <string name="generate_qr_code">建立QR Code</string>
     <string-array name="startModeEntries">
@@ -86,8 +82,6 @@
     <string name="color">顏色</string>
     <string name="logo">標誌</string>
     <string name="title">標題</string>
-    <string name="fit_screen_size">適合螢幕的大小</string>
-    <string name="title_activity_color_picker">顏色選擇器</string>
     <string name="foreground_color">QRCode顏色</string>
     <string name="background_color">背景顏色</string>
     <string name="title_color">標題顏色</string>
@@ -115,7 +109,6 @@
     <string name="no_history">沒有歷史紀錄</string>
     <string name="save_scan_history">儲存QR Code掃描紀錄</string>
     <string name="save_create_history">儲存QR Code建立紀錄</string>
-    <string name="refresh">重新整理</string>
     <string name="clear_history_dialog_title">您確定要清除歷史紀錄嗎?</string>
     <string name="scan_mode">掃描模式</string>
     <string name="create_mode">建立模式</string>
@@ -128,13 +121,10 @@
     <string name="wifi_connect_not_support_android_10">"目前不支援在Android 10以上連線Wi-Fi "</string>
     <string name="version">版本</string>
     <string name="legal_information">法律資訊</string>
-    <string name="copyright_string">Copyright 2022 ZeroApp 保留所有權利。</string>
+    <string name="copyright_string">Copyright 2023 ZeroApp 保留所有權利。</string>
     <string name="select_image">選擇圖片</string>
     <string name="share_image">分享圖片</string>
     <string name="scan_from_image">從圖片掃描</string>
-    <string name="switch_camera_help_text">點擊此按鈕可切換至前置攝像頭或後置攝像頭!</string>
-    <string name="scan_from_image_help_text">點擊此按鈕可掃描裝置裡的圖片QR Code!</string>
-    <string name="flashlight_help_text">點擊此按鈕可啟用或關閉閃光燈!</string>
     <string name="storage_permission_denied_dialog_message">您必須允許ZeroQR使用您的儲存空間來儲存QR Code圖片，ZeroQR不會使用您的儲存空間來做儲存QR Code圖片以外的用途</string>
     <string name="maxHistorySaveNumber">歷史紀錄最大儲存數量</string>
     <string name="clear_history_successfully">成功清除歷史記錄!</string>
@@ -142,22 +132,11 @@
     <string name="book">書籍</string>
     <string name="search_book">搜尋書籍</string>
     <string name="unable_to_load_url">無法載入URL</string>
-    <string name="loading_apps">正在載入所有已安裝的App</string>
+    <string name="loading_apps">正在載入所有已安裝的應用程式</string>
     <string name="no_password">無密碼</string>
     <string name="none">無</string>
     <string name="open_link_in_external_browser">以外部瀏覽器開啟連結</string>
     <string name="view_qrcode">查看QR Code</string>
-    <string name="shorten_url">縮短網址</string>
-    <string name="shortening_url">正在縮短網址...</string>
-    <string name="first_time_shorten_url_dialog_title">關於ZeroQR中的縮短網址</string>
-    <string name="first_time_shorten_url_dialog_message">ZeroQR將會使用您的網際網路連線至QuickURL(短網址服務)來取得縮短的網址。\n\nZeroQR中的縮短網址服務由QuickURL提供</string>
-    <string name="custom_id">自訂ID</string>
-    <string name="require_custom_id">自訂ID不可為空!</string>
-    <string name="unable_to_shorten_url_dialog_title">無法縮短網址</string>
-    <string name="unable_to_shorten_url_dialog_message">由於發生未知的錯誤，所以無法縮短網址，請確認您的網際網路連線並在試一次。</string>
-    <string name="custom_id_already_used_dialog_title">自訂ID已被其他人使用</string>
-    <string name="custom_id_already_used_dialog_message">您輸入的自訂ID已被其他人使用，請輸入其他的自訂ID。</string>
-    <string name="invalid_url">請輸入正確格式的URL!</string>
     <string name="delete">刪除</string>
     <string name="field_required">此欄位不可空白!</string>
     <string name="year">年</string>
@@ -166,5 +145,6 @@
     <string name="hour">小時</string>
     <string name="minute">分鐘</string>
     <string name="generate_application_type">建立應用程式類型的QR Code</string>
-    <string name="require_url">URL不可空白!</string>
+    <string name="wrong_input_format">輸入格式錯誤</string>
+    <string name="fill_in_from_contacts">從聯絡人中填入</string>
 </resources>

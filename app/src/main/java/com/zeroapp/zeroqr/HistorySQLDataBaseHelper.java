@@ -12,7 +12,7 @@ public class HistorySQLDataBaseHelper extends SQLiteOpenHelper {
     private static final String DataBaseName = "HistoryDataBase";
     private static final int DataBaseVersion = 1;
 
-    public HistorySQLDataBaseHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version, String TableName) {
+    public HistorySQLDataBaseHelper(@Nullable Context context) {
         super(context, DataBaseName, null, DataBaseVersion);
     }
 

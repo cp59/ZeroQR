@@ -1,33 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:fitsSystemWindows="true"
-        android:background="?attr/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
         <com.google.android.material.appbar.CollapsingToolbarLayout
+            style="?attr/collapsingToolbarLayoutLargeStyle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:expandedTitleTextAppearance="@style/Theme.ZeroQR.TextAppearance.Design.CollapsingToolbar.Expanded"
-            app:toolbarId="@+id/toolbar">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+            android:layout_height="?attr/collapsingToolbarLayoutLargeSize"
+            app:expandedTitleTextAppearance="@null"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:title="@string/create_mode"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-
+                android:elevation="0dp" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
     <androidx.core.widget.NestedScrollView
@@ -41,177 +33,191 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/create_text"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="65dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="12dp">
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="15dp"
                 android:background="@drawable/round_image"
                 android:layout_gravity="left|center"
-                android:src="@drawable/ic_text"/>
+                android:src="@drawable/ic_text"
+                app:tint="?attr/colorOnSurface" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/plain_text"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:layout_marginLeft="60dp"
+                android:layout_marginLeft="67dp"
                 android:gravity="center_vertical"/>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:id="@+id/create_url"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="65dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/create_text"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="12dp">
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_link"
                 android:layout_gravity="left|center"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/round_image"/>
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/round_image"
+                app:tint="?attr/colorOnSurface"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/url"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:layout_marginLeft="60dp"
+                android:layout_marginLeft="67dp"
                 android:gravity="center_vertical"/>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:id="@+id/create_email"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="65dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/create_url"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="12dp">
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_mail"
                 android:layout_gravity="left|center"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/round_image"/>
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/round_image"
+                app:tint="?attr/colorOnSurface"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/email"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:layout_marginLeft="60dp"
+                android:layout_marginLeft="67dp"
                 android:gravity="center_vertical"/>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:id="@+id/create_phone"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="65dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/create_email"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="12dp">
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_phone"
                 android:layout_gravity="left|center"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/round_image"/>
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/round_image"
+                app:tint="?attr/colorOnSurface"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/phone"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:layout_marginLeft="60dp"
+                android:layout_marginLeft="67dp"
                 android:gravity="center_vertical"/>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:id="@+id/create_contact"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="65dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/create_phone"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="12dp">
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_contacts"
                 android:layout_gravity="left|center"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/round_image"/>
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/round_image"
+                app:tint="?attr/colorOnSurface"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/contact"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:layout_marginLeft="60dp"
+                android:layout_marginLeft="67dp"
                 android:gravity="center_vertical"/>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:id="@+id/create_sms"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="65dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/create_contact"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="12dp">
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_message"
                 android:layout_gravity="left|center"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/round_image"/>
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/round_image"
+                app:tint="?attr/colorOnSurface"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/sms"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:layout_marginLeft="60dp"
+                android:layout_marginLeft="67dp"
                 android:gravity="center_vertical"/>
         </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/create_location"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="65dp"
                 android:layout_below="@+id/create_sms"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="12dp">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="left|center"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="15dp"
                     android:background="@drawable/round_image"
+                app:tint="?attr/colorOnSurface"
                     android:src="@drawable/ic_location" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="60dp"
+                    android:layout_marginLeft="67dp"
                     android:gravity="center_vertical"
                     android:text="@string/location"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large" />
@@ -219,83 +225,88 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/create_calendar"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="65dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/create_location"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="12dp">
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_calendar"
                 android:layout_gravity="left|center"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/round_image"/>
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/round_image"
+                app:tint="?attr/colorOnSurface"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/calendar"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:layout_marginLeft="60dp"
+                android:layout_marginLeft="67dp"
                 android:gravity="center_vertical"/>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:id="@+id/create_wifi"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="65dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/create_calendar"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="12dp">
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_wifi"
                 android:layout_gravity="left|center"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/round_image"/>
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/round_image"
+                app:tint="?attr/colorOnSurface"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/wifi"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:layout_marginLeft="60dp"
+                android:layout_marginLeft="67dp"
                 android:gravity="center_vertical"/>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:id="@+id/create_application"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="65dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="60dp"
             android:layout_below="@+id/create_wifi"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="12dp">
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_apps"
                 android:layout_gravity="left|center"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/round_image"/>
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/round_image"
+                app:tint="?attr/colorOnSurface"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/application"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:layout_marginLeft="60dp"
+                android:layout_marginLeft="67dp"
                 android:gravity="center_vertical"/>
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
 </androidx.core.widget.NestedScrollView>
 <androidx.coordinatorlayout.widget.CoordinatorLayout
-    android:id="@+id/maskBackground"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#99000000"

@@ -17,4 +17,10 @@
             android:layout_height="wrap_content"
             android:inputType="phone" />
     </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/fillInFromContactsBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/fill_in_from_contacts"/>
 </LinearLayout>

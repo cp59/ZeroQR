@@ -6,7 +6,6 @@ public class ContentDecoder {
         static int URL = 1;
         static int EMAIL = 2;
         static int PHONE_NUMBER = 3;
-        static int CONTACT = 4;
         static int SMS = 5;
         static int GEOLOCATION = 6;
         static int CALENDAR_EVENT = 7;

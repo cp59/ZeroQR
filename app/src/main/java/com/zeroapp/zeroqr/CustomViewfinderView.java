@@ -13,8 +13,6 @@ import com.journeyapps.barcodescanner.ViewfinderView;
 import java.util.List;
 
 public class CustomViewfinderView extends ViewfinderView {
-    // Length rate of line and frame
-    private final float mLineRate = 0.2f;
 
     // Line depth
     private final float mLineDepth =
@@ -49,11 +47,13 @@ public class CustomViewfinderView extends ViewfinderView {
         final Rect frame = framingRect;
         final Rect previewFrame = previewFramingRect;
 
-        final int width = canvas.getWidth();
-        final int height = canvas.getHeight();
+        final int width = getWidth();
+        final int height = getHeight();
 
         // [Custom start] Draw 4 corner lines
         paint.setColor(mLineColor);
+        // Length rate of line and frame
+        float mLineRate = 0.2f;
         canvas.drawRect(
                 frame.left,
                 frame.top,
